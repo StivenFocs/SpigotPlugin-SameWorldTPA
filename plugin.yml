@@ -1,0 +1,55 @@
+name: SameWorldTPA
+version: 1.0.0-Release
+main: cloud.stivenfocs.SameWorldTPA.Loader
+authors: [StivenFocs]
+softdepend: [PlaceholderAPI]
+description: "World restricted tpa"
+commands:
+  tpa:
+  tpahere:
+  tpaccept:
+    aliases: [tpyes]
+  tpdeny:
+    aliases: [tpno]
+  tpcancel:
+  tptoggle:
+  sameworldtpa:
+permissions:
+  sameworldtpa.tpa:
+    default: true
+  sameworldtpa.tpahere:
+    default: true
+  sameworldtpa.tpaccept:
+    default: true
+  sameworldtpa.tpdeny:
+    default: true
+  sameworldtpa.tpcancel:
+    default: true
+  sameworldtpa.tptoggle:
+    default: true
+  sameworldtpa.tptoggle.others:
+    default: op
+    children:
+      sameworldtpa.tptoggle: true
+  sameworldtpa.admin:
+    default: op
+  sameworldtpa.admin.help:
+    default: op
+
+  sameworldtpa.admin.*:
+    children:
+      sameworldtpa.tptoggle.others: true
+      sameworldtpa.admin: true
+      sameworldtpa.admin.help: true
+
+  sameworldtpa.*:
+    children:
+      sameworldtpa.tpa: true
+      sameworldtpa.tpahere: true
+      sameworldtpa.tpaccept: true
+      sameworldtpa.tpyes: true
+      sameworldtpa.tpdeny: true
+      sameworldtpa.tpcancel: true
+      sameworldtpa.tptoggle: true
+      sameworldtpa.tptoggle.others: true
+      sameworldtpa.admin.*: true
